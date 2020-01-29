@@ -1,0 +1,43 @@
+version: '3.3'
+services:
+  angular-service:
+    container_name: project_angular
+    build: ./insight-front
+    volumes:
+      - './insight-front:/usr/src/app'
+    ports: 
+      - '4200:4200'
+    command: 
+      - /bin/sh
+      - '-c'
+      - 'npm install && ng serve --port 4200 --host 0.0.0.0'
+    links: 
+      - node
+    networks: 
+      - my-network
+  node:
+    container_name: project_node
+    image: 'node:latest'
+    working_dir: /home/node/app
+    command:
+      - /bin/sh
+      - '-c'
+      - 'npm install && npm start'
+    ports:
+      - '3000:3000'
+    volumes:
+      - './node_api:/home/node/app'
+    links:
+      - mongo
+    networks:
+      - my-network
+  mongo:
+    container_name: project_mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
