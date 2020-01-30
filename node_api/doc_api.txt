@@ -1,0 +1,13 @@
+// ** SESSION //
+ end-point : '/sessions/:session_id' : 
+ 	GET : retourne toutes les sessions
+ 	POST : Créer une session
+ 		Schema_Format : 
+ 			- nomPromo : String
+ 			- annee : Date
+
+ end-point : '/sessions/:session_id' : 
+ 	GET: retourne la session avec l'id ':session_id' 
+ 	PUT : modifie la session avec l'id ':session_id' 
+ 	DELETE: Supprime la session avec l'id ':session_id'  
+
