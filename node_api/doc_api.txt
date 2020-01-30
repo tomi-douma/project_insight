@@ -1,0 +1,9 @@
+MODULE :
+    end-point : '/sessions/:session_id/modules' :
+        GET : retourne tous les modules d'une sessions
+        POST : cree un module dans une sessions
+
+    end-point : '/sessions/modules/:id' :
+        GET: retourne le module avec l'id ':id'
+        PUT : modifie le module avec l'id ':id'
+        DELETE: Supprime le module avec l'id ':id'
