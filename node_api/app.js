@@ -10,8 +10,8 @@ const app = express();
 const hostname = '0.0.0.0';
 const port = 3000;
 
-// realise une connextion à la base mongo sous le container mongo (.yml)
-mongoose.connect('mongodb://mongo/apinodeipssi');
+// Connexion à la bdd mongodb
+mongoose.connect('mongodb://mongo/'+ process.env.DB_NAME);
 
 // Body parser pour interpreter les objets json
 app.use(bodyParser.urlencoded( {extended: true} ));
@@ -20,10 +20,12 @@ app.use(bodyParser.json());
 // Routes call
 // Sample: const postRoute = require('./api/routes/postRoute');
 const moduleRoute = require('./api/Routes/moduleRoute');
+const sessionRoute = require('./api/Routes/sessionRoute');
 
 // on passe notre app a notre route
 // Sample: postRoute(app); 
 moduleRoute(app);
+sessionRoute(app);
 
 // Listen sur le serveur (port, hostname)
 app.listen(port, hostname);
