@@ -34,6 +34,7 @@ Si admin, accès à l'interface d’administration avec:
 - MongoDB (Base de données)
 
 Voir le fichier package.json du Back et du Front pour voir les dépendances utilisées
+ou sur Github > Insights > Dependency graph
 
 ## Premier lancement
 
