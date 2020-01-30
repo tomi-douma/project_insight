@@ -1,16 +1,29 @@
+// Imports
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+// Express setup
 const app = express();
 
-mongoose.connect('mongodb://mongo/apinodeippsi');
+// hostname & port
+const hostname = '0.0.0.0';
+const port = 3000;
 
-app.use(bodyParser.urlencoded({extended: true}));
+// realise une connextion à la base mongo sous le container mongo (.yml)
+mongoose.connect('mongodb://mongo/apinodeipssi');
+
+// Body parser pour interpreter les objets json
+app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
 
-const userRoute = require('./api/Routes/userRoute');
+// Routes call
+// Sample: const postRoute = require('./api/routes/postRoute');
+const moduleRoute = require('./api/Routes/moduleRoute');
 
-userRoute(app);
+// on passe notre app a notre route
+// Sample: postRoute(app); 
+moduleRoute(app);
 
-app.listen(3000, '0.0.0.0');
+// Listen sur le serveur (port, hostname)
+app.listen(port, hostname);
