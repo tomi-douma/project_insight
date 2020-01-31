@@ -24,5 +24,28 @@ MODULE :
  end-point : '/sessions/:session_id' : 
  	GET: retourne la session avec l'id ':session_id' 
  	PUT : modifie la session avec l'id ':session_id' 
- 	DELETE: Supprime la session avec l'id ':session_id'  
+ 	DELETE: Supprime la session avec l'id ':session_id'
 
+// ** Notes //
+ end-point : '/sessions/:session_id/modules/:id/notes' : 
+ 	GET : retourne toutes les notes
+ 	POST : Créer une note
+ 		Schema_Format : 
+ 			- node : Number
+ 			- etudiant_id : String
+			- message : String
+
+ end-point : '/sessions/:session_id/modules/:id/notes/:note_id' : 
+ 	GET: retourne la note avec l'id ': note_id' 
+ 	PUT : modifie la note avec l'id ': note_id' 
+ 	DELETE: Supprime la note avec l'id ':note_id'
+
+// ** Authentification //
+ end-point: '/users/login'
+	Schema_Format:
+		- email: String
+		- password : String
+ end-point: '/users/register'
+	Schema_Format:
+		- email: String
+		- password : String
