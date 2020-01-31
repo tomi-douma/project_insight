@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Module = require('../Models/moduleModel');
+const User = require('../Models/userModel');
 
 // (POST) /sessions/:session_id/modules/:id
 exports.verify_module = (req, res, next) => {
@@ -18,6 +18,39 @@ exports.verify_module = (req, res, next) => {
             }
             else {
                 next();
+            }
+        });
+    } catch (e) {
+        res.status(500);
+        console.log(e);
+        res.json({message: "NO DATABASE ACCESS !!"});
+    }
+	
+}
+
+exports.verify_etudiant = (req, res, next) => {
+    let etudiant_id = req.body.etudiant_id;
+    try {
+        User.findById(etudiant_id, (error, user) => {
+            if(error) {
+                res.status(400);
+                console.log(error);
+                res.json({message: "Le module est inexistant pour cet id"});
+            }
+            else if (!user) {
+                res.status(400);
+                console.log(error);
+                res.json({message: "Le module est inexistant pour cet id"});
+            }
+            else {
+                if(user.role == "ETUDIANT"){
+                    next();
+                }
+                else {
+                    res.status(400);
+                    console.log(error);
+                    res.json({message: "Seul un etudiant peut accéder"});
+                }
             }
         });
     } catch (e) {
