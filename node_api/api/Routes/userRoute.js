@@ -5,11 +5,11 @@ const jwtLiddleware = require('../middleware/jwtMiddleware');
 module.exports = (app) => {
 	app.route('/users')
 	.get(userController.list_all_users)
-	
+
   app.post('/users/register', userController.user_register)
   app.post('/users/login', userController.user_login)
   // .get(postController.list_all_posts)
-  .post(userController.create_a_user);
+
 
   app.route('/users/:user_id')
   .get(userController.get_a_user)

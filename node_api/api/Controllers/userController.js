@@ -63,27 +63,6 @@ exports.list_all_users = (req, res) => {
     })
 }
 
-exports.create_a_user = (req, res) => {
-
-    let new_user = new User(req.body);
-
-    try {
-        new_user.save((error, user) => {
-            if (error) {
-                res.status(400);
-                console.log(error);
-                res.json({message: "Il manque des infos"});
-            } else {
-                res.status(201);
-                res.json(user)
-            }
-        })
-    } catch (e) {
-        res.status(500);
-        console.log(e);
-        res.json({message: "Erreur serveur"})
-    }
-}
 
 exports.get_a_user = (req, res) => {
 
