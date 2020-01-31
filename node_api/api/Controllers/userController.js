@@ -19,7 +19,7 @@ exports.user_register = (req, res) => {
         user = user.toObject();
         delete user.password
         
-        res.json({message: "Utilisateur crée"})
+        res.json(user)
       }
     })
   }
