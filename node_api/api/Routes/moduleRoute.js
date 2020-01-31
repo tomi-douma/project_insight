@@ -6,7 +6,7 @@ module.exports = (app) => {
     .post(moduleController.create_a_module);
  
 
-    app.route('/sessions/modules/:id')
+    app.route('/sessions/:session_id/modules/:id')
     .get(moduleController.get_a_module)
     .delete(moduleController.delete_a_module)
     .put(moduleController.update_a_module);

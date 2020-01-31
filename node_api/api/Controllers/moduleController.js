@@ -51,19 +51,19 @@ exports.create_a_module = (req, res) => {
     
     
 };
-// (GET) /sessions/modules/:id
+// (GET) /sessions/:session_id/modules/:id
 exports.get_a_module = (req, res) => {
     try {
-        Module.findById(req.params.id, (error, module) => {
+        Module.findOne({_id:req.params.id, session_id: req.params.session_id}, (error, module) => {
             if(error) {
                 res.status(400);
                 console.log(error);
-                res.json({message: "pas de module pour cet id"});
+                res.json({message: "pas de module pour cet id dans cette session"});
             }
             else if (!module) {
                 res.status(400);
                 console.log(error);
-                res.json({message: "pas de module pour cet id"});
+                res.json({message: "pas de module pour cet id dans cette session"});
             }
             else {
                 res.status(201);
@@ -77,11 +77,11 @@ exports.get_a_module = (req, res) => {
     }
 };
 
-// (PUT) /sessions/modules/:id
+// (PUT) /sessions/:session_id/modules/:id
 exports.update_a_module = (req, res) => {
 
     try {
-        Module.findByIdAndUpdate(req.params.id, req.body, {new: true} ,(error, module) => {
+        Module.findOneAndUpdate({_id: req.params.id, session_id: req.params.session_id}, req.body, {new: true} ,(error, module) => {
             if(error) {
                 res.status(401);
                 console.log(error);
@@ -100,10 +100,10 @@ exports.update_a_module = (req, res) => {
     }
 };
 
-// (DELETE) /sessions/modules/:id
+// (DELETE) /sessions/:session_id/modules/:id
 exports.delete_a_module = (req, res) => {
     try {
-        Module.findByIdAndRemove(req.params.id, (error, module) => {
+        Module.findOneAndRemove({_id: req.params.id, session_id: req.params.session_id}, (error, module) => {
             if(error) {
                 res.status(400);
                 console.log(error);
