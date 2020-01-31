@@ -9,7 +9,7 @@ MODULE :
 				- date_fin: Date 
 				- session_id: String # En params dans l'url
 
-    end-point : '/sessions/modules/:id' :
+    end-point : '/sessions/:session_id/modules/:id' :
         GET: retourne le module avec l'id ':id'
         PUT : modifie le module avec l'id ':id'
         DELETE: Supprime le module avec l'id ':id'
