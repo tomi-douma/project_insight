@@ -67,5 +67,7 @@ localhost:27017
 localhost:3000
 ```
 
+## JWT_KEY
 
+Ecrivez votre key dans .env
 

@@ -77,11 +77,11 @@ exports.get_a_module = (req, res) => {
     }
 };
 
-// (POST) /sessions/modules/:id
+// (PUT) /sessions/modules/:id
 exports.update_a_module = (req, res) => {
 
     try {
-        Module.findByIdAndUpdate(req.body._id, req.body, {new: true} ,(error, module) => {
+        Module.findByIdAndUpdate(req.params.id, req.body, {new: true} ,(error, module) => {
             if(error) {
                 res.status(401);
                 console.log(error);

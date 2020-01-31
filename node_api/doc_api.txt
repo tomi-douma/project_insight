@@ -2,8 +2,27 @@ MODULE :
     end-point : '/sessions/:session_id/modules' :
         GET : retourne tous les modules d'une sessions
         POST : cree un module dans une sessions
+			Schema_Format:
+				- name: String
+				- intervenant_id: String
+				- date_debut: Date
+				- date_fin: Date 
+				- session_id: String # En params dans l'url
 
     end-point : '/sessions/modules/:id' :
         GET: retourne le module avec l'id ':id'
         PUT : modifie le module avec l'id ':id'
         DELETE: Supprime le module avec l'id ':id'
+// ** SESSION //
+ end-point : '/sessions/' : 
+ 	GET : retourne toutes les sessions
+ 	POST : Créer une session
+ 		Schema_Format : 
+ 			- nomPromo : String
+ 			- annee : Date
+
+ end-point : '/sessions/:session_id' : 
+ 	GET: retourne la session avec l'id ':session_id' 
+ 	PUT : modifie la session avec l'id ':session_id' 
+ 	DELETE: Supprime la session avec l'id ':session_id'  
+
