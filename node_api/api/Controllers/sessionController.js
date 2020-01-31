@@ -50,7 +50,7 @@ exports.update_a_session = (req, res) => {
         console.log(error);
         res.json({message: "L'Id " + req.params.session_id + " session introuvable"});
       }
-      else if(req.params.session_nomPromo == undefined){
+      else if(!session){
         res.status(200);
         res.json({message: "La session est undefined, impossible à update"})
       }
