@@ -20,10 +20,12 @@ app.use(bodyParser.json());
 // Routes call
 // Sample: const postRoute = require('./api/routes/postRoute');
 const moduleRoute = require('./api/Routes/moduleRoute');
+const userRoute = require('./api/Routes/userRoute');
 
 // on passe notre app a notre route
 // Sample: postRoute(app); 
 moduleRoute(app);
+userRoute(app);
 
 // Listen sur le serveur (port, hostname)
 app.listen(port, hostname);
