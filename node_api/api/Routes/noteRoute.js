@@ -3,7 +3,7 @@ const noteMiddleware = require('../middleware/noteMiddleware');
 
 module.exports = (app) => {
 	app.route('/sessions/:session_id/modules/:module_id/notes/')
-		.all(noteMiddleware.verify_module)
+		.all(noteMiddleware.verify_module, noteMiddleware.verify_etudiant)
 		.get(noteController.list_all_notes)
 		.post(noteController.create_a_note)
 
