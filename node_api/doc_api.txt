@@ -49,3 +49,4 @@ MODULE :
 	Schema_Format:
 		- email: String
 		- password : String
+		- role: String
