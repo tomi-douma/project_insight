@@ -53,7 +53,7 @@ exports.user_login = (req, res) => {
                     res.status(400);
                     res.json({message: "Merci de bien vouloir entrer un mot de passe correcte"});
                 } else {
-                    jwt.sign({email: user.email}, process.env.JWT_KEY, {expiresIn: "10m"}, (jwtError, token) => {
+                    jwt.sign({email: user.email}, process.env.JWT_KEY, {expiresIn: "59m"}, (jwtError, token) => {
                         if (jwtError) {
                             res.status(500);
                             res.json({message: "Erreur serveur"});

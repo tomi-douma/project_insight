@@ -50,3 +50,7 @@ MODULE :
 		- email: String
 		- password : String
 		- role: String
+
+// ROLES
+	-ETUDIANT
+	-ADMIN
