@@ -55,11 +55,8 @@ docker-compose up -d
 
 ## URL
 Une fois les commandes Docker exécutées, le projet devrait fonctionner et le client
-accessible sur le navigateur à l'adresse du serveur angular
+accessible sur le navigateur à l'adresse du serveur node
 ```
-# angular server
-localhost:4200
-
 # mongodb server 
 localhost:27017
 
@@ -71,3 +68,6 @@ localhost:3000
 
 Ecrivez votre key dans .env
 
+## Doc de l'api
+
+Dans node_api/doc_api.txt
